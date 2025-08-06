@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Mozilla Headline", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.hero-section{
+    height: 55vh;
+    width: 100vw;
+    background-color: whitesmoke;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-1{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.bg-1{
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+}
+
+.bg-1 img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    transform: translateY(45%);
+}
+
+.bg-2{
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+
+.bg-2 img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    transform:translateY(-40%);
+
+}
+
+.main-search-box-continer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(3px);
+    gap: 20px;
+}
+
+.main-search-box-continer input{
+    height: 40px;
+    width: 30vw;
+    border-radius: 34px;
+    outline: none;
+    padding: 6px 30px;
+    border: 1px solid black;
+    font-size: 1.2em;
+    background-color: aliceblue;
+}
+.main-search-box-continer h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.main-search-box-continer h1 span{
+    color: orangered;
+}
+
+
+@media screen and (max-width: 768px) {
+    .bg-2{
+        display: none;
+    }
+}
