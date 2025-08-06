@@ -9,6 +9,11 @@
 body{
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar{
+    display: none;
 }
 
 .hero-section{
@@ -90,8 +95,22 @@ body{
 }
 
 
+
+.categorias-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+}
+
+
+
 @media screen and (max-width: 768px) {
     .bg-2{
         display: none;
+    }
+
+    .main-search-box-continer input{
+        width: 70vw;
+        padding: 2px 30px;
     }
 }
