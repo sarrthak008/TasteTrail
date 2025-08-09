@@ -1,9 +1,11 @@
 
 let result = JSON.parse(localStorage.getItem("searchRes"))
-console.log(result[0])
+console.log(result)
 
 let ingredientContainer = document.querySelector(".main-ingredients-container");
 let mainrecipeContainer = document.querySelector(".main-recipe-container")
+let homeBtn = document.querySelector(".btn-back")
+
 
 
 const createIngredients = (allinfo) => {
@@ -18,30 +20,44 @@ const createIngredients = (allinfo) => {
         }
     }
 
-     for(let i = 0 ; i < mainIngredients.length/2 ; i++){
+    for (let i = 0; i < mainIngredients.length / 2; i++) {
         ingredientsName.push(mainIngredients[i])
-     }
+    }
 
-     for(let i = mainIngredients.length/2 ; i < mainIngredients.length ; i++){
+    for (let i = mainIngredients.length / 2; i < mainIngredients.length; i++) {
         ingredientsQuantity.push(mainIngredients[i])
-     }
+    }
 
-     ingredientsName = ingredientsName.filter((i)=> i !== "" && i !== " ")
-     ingredientsQuantity = ingredientsQuantity.filter((i)=> i !== " " && i !== "")
+    ingredientsName = ingredientsName.filter((i) => i !== "" && i !== " ")
+    ingredientsQuantity = ingredientsQuantity.filter((i) => i !== " " && i !== "")
 
-     for(let i = 0 ; i < ingredientsName.length ; i++){
-         mainInnerHtml += `<span class="ingredient-body">${ingredientsName[i]} : ${ingredientsQuantity[i]}</span>`
-     }
+    for (let i = 0; i < ingredientsName.length; i++) {
+        mainInnerHtml += `<span class="ingredient-body">${ingredientsName[i]} : ${ingredientsQuantity[i]}</span>`
+    }
 
-     return mainInnerHtml
+    return mainInnerHtml
 
 }
 
+const createRecipeCrads = () => {
 
-const createRecipeCrads = ()=>{
-  let cardsHtml = ""
-   for(let i=0 ; i < result.length ; i++){
-     cardsHtml += `<div class="recipe-card-body">
+    let cardsHtml = ""
+
+    if (result.message) {
+
+        cardsHtml = `<div class="error-container">
+            <div class="error-img-container">
+                <img src="../images/bowl.png" />
+            </div>
+            <h4>Bowl is empty..</h4>
+            <button class="btn-back" onclick="window.location.href = '/index.html'"><i class="ri-arrow-left-line"></i>Back to home</button>
+        </div>`
+
+    }else{
+
+    for (let i = 0; i < result.length; i++) {
+
+        cardsHtml += `<div class="recipe-card-body">
            <h3>${result[i].strMeal}</h3>
            <div class="recipe-info-container">
                 <div class="recipe-image">
@@ -58,19 +74,25 @@ const createRecipeCrads = ()=>{
 
                          <h2>Sources</h2>
                          <a href="${result[0].strSource}" target="_blank">${result[0].strSource}</a>
+                         <br>
+                         <br>
                          <a href="${result[0].strYoutube}" target="_blank">${result[0].strYoutube}</a>
-
                     </div>
                 </div>
            </div>
        </div>`
-   }
-
-
-   return cardsHtml
+    }
+}
+    return cardsHtml
 
 }
 
 
-let cardsHTml = createRecipeCrads()
-mainrecipeContainer.innerHTML = cardsHTml
+// go back to home
+
+
+let cardsHtml = createRecipeCrads()
+
+mainrecipeContainer.innerHTML = cardsHtml
+
+
