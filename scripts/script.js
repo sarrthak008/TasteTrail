@@ -32,8 +32,6 @@ const loadCategories = async () => {
     }
 }
 
-loadCategories()
-
 const searchBycard = (foodIteam) => {
     loadSearchResult(foodIteam)
     setTimeout(() => {
@@ -52,7 +50,6 @@ serchInput.addEventListener("keydown", (e) => {
         }, 1000)
     }
 })
-
 
 
 // search food 
@@ -78,3 +75,6 @@ let loadSearchResult = async (foodIteam) => {
 }
 
 
+document.addEventListener("DOMContentLoaded",()=>{
+    loadCategories()
+})

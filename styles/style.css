@@ -126,13 +126,14 @@ body::-webkit-scrollbar{
 }
 
 .categorie-card{
-    height: 280px;
-    width: 250px;
+    height: 250px;
+    width: 300px;
     background-color: #e0dfdf;
     border-radius: 14px;
     overflow: hidden;
     padding: 10px;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .categorie-type{
